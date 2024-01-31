@@ -1,23 +1,11 @@
 
 
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-target = 2
-low, high = 0, len(arr) - 1
+arr = [64, 25, 12, 22, 11]
+n = len(arr)
 
-while low <= high:
-    mid = (low + high) // 2
-    mid_value = arr[mid]
-
-    if mid_value == target:
-        print(mid)  
-    elif mid_value < target:
-        low = mid + 1
-    else:
-        high = mid - 1
-        
-a = -1
-
-if a != -1:
-    print(f"Значение {target} найдено по индексу {mid}.")
-else:
-    print(f"Значение {target} не найдено.")
+for i in range(n):
+    # Последние i элементов уже отсортированы, поэтому их не рассматриваем
+    for j in range(0, n-i-1):
+        # Сравниваем пару элементов и меняем их местами, если нужно
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
